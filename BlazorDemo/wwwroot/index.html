@@ -20,6 +20,31 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        window.convertArray = (win1251Array) => {
+            var win1251decoder = new TextDecoder('windows-1251');
+            var bytes = new Uint8Array(win1251Array);
+            var decodedArray = win1251decoder.decode(bytes);
+            console.log(decodedArray);
+            return decodedArray;
+        };
+
+        window.displayTickerAlert1 = (symbol, price) => {
+            alert(`${symbol}: $${price}!`);
+        };
+
+        window.returnArrayAsync = () => {
+            DotNet.invokeMethodAsync('BlazorDemo', 'ReturnArrayAsync')
+                .then(data => {
+                    console.log(data);
+                });
+        };
+
+        window.sayHello1 = (dotNetHelper) => {
+            return dotNetHelper.invokeMethodAsync('GetHelloMessage');
+        };
+
+    </script>
 </body>
 
 </html>

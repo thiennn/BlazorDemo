@@ -1,0 +1,12 @@
+﻿<h3>MySmallComponent</h3>
+<p>My text: @MyText. My int: @MyInt</p>
+
+@code {
+
+    [Parameter]
+    [EditorRequired]
+    public string MyText { get; set; }
+
+    [Parameter]
+    public int MyInt { get; set; }
+}

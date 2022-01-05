@@ -1,11 +1,12 @@
 ﻿@page "/event-handler-example-1"
 
-<h1>@currentHeading</h1>
+<h1>@currentHeading </h1>
+<h1 style="color:red">@newHeading</h1>
 
 <p>
     <label>
         New title
-        <input @bind="newHeading" />
+        <input @bind="@newHeading" />
     </label>
     <button @onclick="UpdateHeading">
         Update heading
